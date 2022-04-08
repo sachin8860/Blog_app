@@ -1,0 +1,40 @@
+<div class="header">
+<div class="card upper-sec" style="width:100%;">
+    <div class="logo" style="width:30%;">
+        Logo Image here
+    </div>
+    <div>
+        <% if user_signed_in? %>
+        Welcome User : <%= current_user.email%>
+        <% end %>
+    </div>
+    <div class="" style="width:30%;">
+        <ul>
+            <% if user_signed_in?%>
+            <li><%= link_to 'Edit User', edit_user_registration_path, class:'link'%></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'link'%></li>
+            <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path, class:'link'%></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path, class:'link'%></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+    <h1 class="header-tag">Welcome to RoR Development</h1>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'About Us', home_about_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Blogs', blogs_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Contact Us', home_contact_path, class: 'nav-link'%>
+        </li>
+    </ul>
+</div>

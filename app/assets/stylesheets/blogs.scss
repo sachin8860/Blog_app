@@ -1,0 +1,70 @@
+// Place all the styles related to the blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.my_card{
+    display:flex !important; 
+    flex-direction: row !important; 
+    padding:5px;
+}
+.blog-img{
+    width: 100%;
+}
+.show-blog-img-center{
+    margin: auto;
+    width: 70%;
+}
+.show-blog-img{
+    height: 250px;
+    width: 100%;
+}
+.btn{
+    border-radius: 30%;
+}
+.read-btn{
+    color: #fff !important;
+}
+.link{
+color: #249152 !important;
+text-decoration: none;
+}
+.link:hover{
+    background-color: rgb(170, 165, 165) !important;
+    color: brown !important;
+    padding: 5px;
+}
+.cat-link{
+    text-decoration: none;
+}
+.cat-link:hover{
+    background-color: rgb(255, 255, 255) !important;
+}
+.new-blog{
+    color: white !important;
+    margin: auto;
+}
+.card-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.badge{
+    color: #fff;
+    background-color: #007bff; 
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;     
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+.sachin{
+    width: 100% !important;
+}

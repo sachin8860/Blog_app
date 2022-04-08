@@ -1,0 +1,41 @@
+<%= form_with(model: blog) do |form| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+        <% blog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="flex-row d-flex justify-content-center">
+    <div class="col-md-8">
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:'form-control'%>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :body %>
+    <%= form.text_area :body, class:'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :category %>
+    <%= form.select :category_id, Category.all.map {|c| [c.category,c.id]}, class:'sachin' %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class:'form-control' %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  </div>
+  </div>
+<% end %>

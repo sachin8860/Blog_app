@@ -1,0 +1,40 @@
+.upper-sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.upper-sec ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+}
+.upper-sec ul li{
+    list-style: none;
+    margin: 0;
+}
+.header{
+    background-color: rgb(12, 100, 182);
+}
+.header-tag{
+    font-size: 2rem;
+    color: aliceblue;
+    text-align: center;
+    padding: 30px;
+}
+.footer{
+    background-color: rgb(23, 145, 104);
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+.footer-tag{
+    color: aliceblue;
+    text-align: center;
+}
+.footer-tag ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}

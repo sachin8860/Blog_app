@@ -1,0 +1,20 @@
+  <h3 style="text-align:center;"><%= @blog.title %></h3>
+<div class="show-blog-img-center">
+  <% if @blog.image.present?%>
+  <%= image_tag @blog.image, class:"show-blog-img" %>
+  <%end%>
+</div>
+<div class="card-body">
+  <%= @blog.body %>
+  <i class="fa-solid fa-share fa-rotate-180"></i>
+</div>
+
+
+
+<%= link_to 'Back', blogs_path, class:"btn btn-outline-primary" %> | 
+<% if user_signed_in? %>
+      <%= link_to 'Edit this blog', edit_blog_path(@blog), class:'link' %>
+    <% else %>
+      <h4 class="card" style="text-align:center;">For updating this blog post pls login first..</h4>
+    <% end %>
+
