@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .my_card{
     display:flex !important; 
-    flex-direction: row !important; 
+    // flex-direction: row !important; 
     padding:5px;
 }
 .blog-img{
@@ -67,4 +67,26 @@ text-decoration: none;
 }
 .sachin{
     width: 100% !important;
+}
+    // @media(min-width:1440px) and (max-width:481px){
+    //     .my_card{
+    //         display: flex !important;
+    //         flex-direction: row !important;
+    //     }
+    // }
+@media(max-width:480px){
+    .my_card{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}
+.cardd{
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+
 }

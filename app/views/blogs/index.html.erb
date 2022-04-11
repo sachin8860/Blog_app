@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-9">
     <% @blogs.each do |blog| %>
-      <div class="my_card card">
-        <div class="img-card col-md-4">
+      <div class="my_card cardd d-flex col-md-12 col-sm-12">
+        <div class="img-card col col-md-4 col-sm-12">
         <% if blog.image.present?%>
           <%= image_tag blog.image, class:"blog-img" %> 
           <%end%>
         </div>
-        <div class="card-body col-md-8">
+        <div class="card-body col col-md-7 col-sm-12">
           <h3 class="card-title"><%= blog.title %></h3>
           <p class="card-text"><%= blog.body %></p>
           <p class="lead"><%= link_to 'Read More..', blog, class: "btn btn-primary read-btn"%></p>
