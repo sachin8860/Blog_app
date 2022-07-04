@@ -12,7 +12,8 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-info' %>  <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %></td>
+        <td><%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-info' %>  
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'All blogs associated with this category will also be deleted. Are you sure ?' }, class: 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>
   </tbody>

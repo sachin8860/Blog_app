@@ -20,7 +20,12 @@
       <br>
     <% end %>
     <% if user_signed_in? %>
-      <%= link_to 'Write a Blog', new_blog_path, class: 'btn btn-info new-blog' %>
+    <% if !@categories.present? %>
+      <h4 class="card" style="text-align:center;">Add new category first</h4>
+      <% end %>
+    <% if @categories.present? %>
+        <%= link_to 'Write a Blog', new_blog_path, class: 'btn btn-info new-blog' %>
+      <% end %>
     <% else %>
       <h4 class="card" style="text-align:center;">For Writing a new blog post pls login first..</h4>
     <% end %>
@@ -42,6 +47,24 @@
         </ul>
       </div>
   </div>
+
+  <%# Add tag %>
+  <br>
+  <div class="card">
+    <div class="card-header">
+      <h4>Tags</span></h4>
+    </div>
+    <% if user_signed_in? %>
+    <div class="card-body">
+      <%= link_to 'Click here', tags_path, class: 'btn btn-outline-info'%>
+    </div>
+    <% else %>
+    <div class="card-body">
+      Sign in Frist
+      </div>
+    <% end %>
+  </div>
+  <%# End of Categories %>
   <%# Recent %>
   <br>
   <div class="col-md-12">

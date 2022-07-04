@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_050330) do
+ActiveRecord::Schema.define(version: 2022_07_04_093644) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,9 +40,19 @@ ActiveRecord::Schema.define(version: 2022_04_08_050330) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "blog_tags", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "blog_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_blog_tags_on_blog_id"
+    t.index ["tag_id"], name: "index_blog_tags_on_tag_id"
+  end
+
   create_table "blogs", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
@@ -50,6 +60,12 @@ ActiveRecord::Schema.define(version: 2022_04_08_050330) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
