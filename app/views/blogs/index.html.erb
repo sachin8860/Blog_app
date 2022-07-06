@@ -75,8 +75,7 @@
     </div>
     <div class="card-body">
       <% @tags.each do |tag|%>
-      <%= link_to tag.name, tag, class:'link text-white badge badge-info'%>
-
+        <%= link_to tag.name, tag, class:'link text-white badge badge-info'%>
       <%end%>
     </div>
      <% if user_signed_in? %>
