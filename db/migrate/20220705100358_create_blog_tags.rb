@@ -1,8 +1,8 @@
 class CreateBlogTags < ActiveRecord::Migration[6.1]
   def change
     create_table :blog_tags do |t|
-      t.references :blog
-      t.references :tag
+      t.references :blog, null: false, foreign_key: true
+      t.references :tag, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blog_tags
   resources :tags
   devise_for :users
   resources :categories

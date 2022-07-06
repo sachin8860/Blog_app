@@ -8,5 +8,5 @@ class Blog < ApplicationRecord
     has_many :blog_tags
     has_many :tags, through: :blog_tags
 
-    accepts_nested_attributes_for :tags
+    accepts_nested_attributes_for:blog_tags
 end

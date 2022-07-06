@@ -1,9 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @tag.name %>
+  <strong>Showing blogs with tag - <%= @tag.name %></strong>
+
 </p>
 
+<div class="row">
+  <div class="col-md-9">
+    <% @tag.blogs.each do |blog| %>
+      <div class="my_card cardd d-flex col-md-12 col-sm-12">
+        <div class="img-card col col-md-4 col-sm-12">
+        <% if blog.image.present?%>
+          <%= image_tag blog.image, class:"blog-img" %> 
+          <%end%>
+        </div>
+        <div class="card-body col col-md-7 col-sm-12">
+          <h3 class="card-title"><%= blog.title %></h3>
+          <p class="card-text"><%= blog.body %></p>
+          <p class="lead"><%= link_to 'Read More..', blog, class: "btn btn-primary read-btn"%></p>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_blog_path(blog), class: "link" %> | 
+            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
+          <% end %>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to 'Back', blogs_path %>

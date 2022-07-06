@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   def index
     @categories = Category.all
     @blogs = Blog.all
+    @tags = Tag.all
   end
 
   # GET /blogs/1 or /blogs/1.json
@@ -20,6 +21,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @blog.blog_tags.build
   end
 
   # GET /blogs/1/edit
@@ -72,6 +74,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :category_id, :image, tags_attributes: [:id, :name])
+      params.require(:blog).permit(:title, :body, :category_id, :image, blog_tags_attributes: [:id, :tag_id, :blog_id, :_destroy])
     end
 end

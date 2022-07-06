@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_04_093644) do
+ActiveRecord::Schema.define(version: 2022_07_05_100358) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2022_07_04_093644) do
   end
 
   create_table "blog_tags", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "blog_id"
-    t.bigint "tag_id"
+    t.bigint "blog_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["blog_id"], name: "index_blog_tags_on_blog_id"
@@ -84,4 +84,6 @@ ActiveRecord::Schema.define(version: 2022_07_04_093644) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_tags", "blogs"
+  add_foreign_key "blog_tags", "tags"
 end

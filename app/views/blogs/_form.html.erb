@@ -1,4 +1,4 @@
-<%= form_with(model: blog,  local: true) do |form| %>
+<%= form_with(model: blog) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
@@ -33,12 +33,24 @@
     <%= form.file_field :image, class:'form-control' %>
   </div>
 
-  <% Blog.all.each do |tag|%>
-    <div class="field form-group">
-      <%= form.label :tag.name %>
-      <%= form.text_field :tag.name, class:'form-control' %>
+  <div class="field form-group">
+    <%= form.label :Tags %>
+  </div>
+  <div class="formfield">
+      <% Tag.all.each_with_index do |tag, i| %> 
+        <% blog_tag = @blog.blog_tags.where(tag_id: tag.id).last %>
+        <div class="mr-2">
+          <input type="hidden" value="<%= blog_tag.try(:id) %>" name="blog[blog_tags_attributes][<%= i %>][id]">
+          <input type="hidden" value="<%= tag.try(:id) %>" name="blog[blog_tags_attributes][<%= i %>][tag_id]">
+          <label>
+            <%= i +1 %>
+            <%= tag.name  %> 
+            <input type="hidden" value="true" name="blog[blog_tags_attributes][<%= i %>][_destroy]">
+            <input type="checkbox" value="false" name="blog[blog_tags_attributes][<%= i %>][_destroy]" <%= 'checked=true' if blog_tag.present? %>>
+          </label>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 
   <div class="actions">
     <%= form.submit %>

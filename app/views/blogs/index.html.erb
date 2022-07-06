@@ -54,17 +54,19 @@
     <div class="card-header">
       <h4>Tags</span></h4>
     </div>
-    <% if user_signed_in? %>
     <div class="card-body">
-      <%= link_to 'Click here', tags_path, class: 'btn btn-outline-info'%>
+      <% @tags.each do |tag|%>
+      <%= link_to tag.name, tag, class:'link text-white badge badge-info'%>
+
+      <%end%>
     </div>
-    <% else %>
-    <div class="card-body">
-      Sign in Frist
-      </div>
+     <% if user_signed_in? %>
+    <div class="card-body m-auto">
+      <%= link_to 'Create New Tag', new_tag_path, class:'btn btn-outline-info' %>
+    </div>
     <% end %>
   </div>
-  <%# End of Categories %>
+  <%# End of tags %>
   <%# Recent %>
   <br>
   <div class="col-md-12">
@@ -91,7 +93,7 @@
       <h4>Add Category</span></h4>
     </div>
     <% if user_signed_in? %>
-    <div class="card-body">
+    <div class="card-body m-auto">
       <%= link_to 'Click here', categories_path, class: 'btn btn-outline-info'%>
     </div>
     <% else %>
