@@ -47,6 +47,11 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
+        @tag_len = params[:blog][:tags_attributes]
+        @tag_len.each do |key, value|
+          @tag = Tag.find(value[:id])
+          @tag.update(name: value[:_destroy])
+        end
         format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
         format.json { render :show, status: :ok, location: @blog }
       else
@@ -72,8 +77,16 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def set_tag
+      @tag = Tag.find(params[:id])
+    end
+
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :category_id, :image,tags_attributes: [:name, :_destroy], blog_tags_attributes: [:id, :tag_id, :blog_id, :_destroy])
+      params.require(:blog).permit(:title, :body, :category_id, :image, tags_attributes: [:id, :name, :_destroy], blog_tags_attributes: [:id, :tag_id, :blog_id, :_destroy])
+    end
+
+    def tag_params
+      params.require(:tag).permit(:title, :body, :category_id, :image, tags_attributes: [:id, :name, :_destroy], blog_tags_attributes: [:id, :tag_id, :blog_id, :_destroy])
     end
 end

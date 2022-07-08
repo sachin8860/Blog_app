@@ -50,6 +50,7 @@
               <%= i +1 %>
               <input type="hidden" value="<%= tag.id %>" name="blog[tags_attributes][<%= i %>][id]"> 
               <input type="text" value="<%= tag.name %>" name="blog[tags_attributes][<%= i %>][_destroy]"> 
+              
               <input type="hidden" value="true" name="blog[blog_tags_attributes][<%= i %>][_destroy]">
               <input type="checkbox" value="false" name="blog[blog_tags_attributes][<%= i %>][_destroy]" <%= 'checked=true' if blog_tag.present? %>>
             </label>

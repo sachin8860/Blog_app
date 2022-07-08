@@ -7,7 +7,8 @@ class Blog < ApplicationRecord
 
     has_many :blog_tags,dependent: :destroy
     has_many :tags, through: :blog_tags
-    # accepts_nested_attributes_for :tags
+    
+    accepts_nested_attributes_for :tags
     accepts_nested_attributes_for :blog_tags, allow_destroy: true
 
     # added custom attribute for tag
