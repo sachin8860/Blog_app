@@ -9,6 +9,7 @@
         </div>
         <div class="card-body col col-md-7 col-sm-12">
           <h3 class="card-title"><%= blog.title %></h3>
+          <p class="text-muted">Created at: <%= blog.created_at %></p>
           <p class="card-text"><%= blog.body %></p>
 
           <p class="lead"><%= link_to 'Read More..', blog, class: "btn btn-primary read-btn"%></p>
