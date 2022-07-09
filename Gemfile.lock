@@ -232,6 +232,7 @@ DEPENDENCIES
   devise (~> 4.8, >= 4.8.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mail
   mysql2 (~> 0.5)
   pg
   pry
