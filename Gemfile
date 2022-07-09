@@ -64,4 +64,4 @@ group :production do
   gem 'mail'
 end
 
-gem 'net-smtp'
+gem 'net-smtp', require: false
